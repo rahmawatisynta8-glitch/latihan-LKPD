@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Nilai Sederhana</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 400px; margin: auto; }
+    label { display: block; margin-top: 10px; }
+    input { width: 100%; padding: 8px; margin-top: 5px; }
+    button { margin-top: 15px; padding: 10px; width: 100%; cursor: pointer; background: #4CAF50; color: white; border: none; }
+    .result { margin-top: 20px; font-size: 18px; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <h2>Kalkulator Nilai</h2>
+
+  <label>Nilai Harian</label>
+  <input type="number" id="harian" min="0" max="100">
+
+  <label>UTS</label>
+  <input type="number" id="uts" min="0" max="100">
+
+  <label>Ulangan</label>
+  <input type="number" id="ulangan" min="0" max="100">
+
+  <button onclick="hitung()">Hitung Rata-rata</button>
+
+  <div class="result" id="hasil"></div>
+
+  <script>
+    function hitung() {
+      const harian = parseFloat(document.getElementById('harian').value) || 0;
+      const uts = parseFloat(document.getElementById('uts').value) || 0;
+      const ulangan = parseFloat(document.getElementById('ulangan').value) || 0;
+
+      const rata = (harian + uts + ulangan) / 3;
+      document.getElementById('hasil').innerText = "Rata-rata: " + rata.toFixed(2);
+    }
+  </script>
+
+</body>
+</html>
